@@ -1,1 +1,22 @@
-<p class="bg-green-300">Hello From Nav Bar</p>
+<div class="navMain flex justify-between">
+    <div class="navLogo flex-none w-24 ml-20 py-4">
+        <img src="https://ideogram.ai/assets/image/lossless/response/qyww7sZcRaqgo44-7Q_5KQ" class="w-16 h-16 rounded-lg">
+    </div>
+    <div class="navItems flex flex-auto w-64 items-center ml-10">
+        <ul class="flex">
+            <li class="ml-8" (click)="ShowTodoApp()">Todo</li>
+            <li class="ml-8">Movies</li>
+            <li class="ml-8">Crud</li>
+            <li class="ml-8">Cricket</li>
+        </ul>
+    </div>
+    <div class="flex flex-auto w-32 items-center justify-end pr-10">
+        <p>Portifolio</p>
+        <fa-icon [icon]="faArrowRight" class="pl-3"></fa-icon>
+    </div>
+</div>
+<div class="contentOfthePage">
+    <div class="todo" *ngIf = "currentPage =='todo'">
+        <app-todo></app-todo>
+    </div>
+</div>

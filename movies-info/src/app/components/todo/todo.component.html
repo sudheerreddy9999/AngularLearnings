@@ -1,0 +1,17 @@
+<div class="flex items-center justify-center rounded-lg">
+    <div class="w-96 bg-gray-100 rounded-lg">
+        <div class="todoHeader p-4" >
+            <h1 class="text-gray-900 text-xl font-serif pb-6">To-Do List</h1>
+            <input type="text" [(ngModel)]="newTodo.text" placeholder="Add New To-Do" class="text-xs p-2 rounded-lg rounded-full w-full h-10 focus:outline-none ">
+            <button (click)="addNewTodo()" class="rounded-full bg-green-400 text-md h-10 w-20 -ml-20">ADD</button>
+        </div>
+        <div class="p-4 pt-0">
+            <li *ngFor="let todo of todoList; let i=index" class="flex p-2 items-center justify-start">
+                <input type="checkbox" (click)="itemClicked(i)" class="h-4 w-4 rounded-[100%] mr-4 border border-gray-300">
+                <p [ngClass]="{'line-through':todo.completed}" class="w-3/4">{{todo.text}}</p>
+                <fa-icon [icon]="faTimes" (click)="deleteTodo(i)" class="text-gray-500 cursor-pointer"></fa-icon>
+            </li>
+        </div>
+      </div>
+  </div>
+  
