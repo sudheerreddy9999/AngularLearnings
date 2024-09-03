@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angularLearnings": {
+    "movies-info": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/angular-learnings",
+            "outputPath": "dist/movies-info",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "angularLearnings:build:production"
+              "buildTarget": "movies-info:build:production"
             },
             "development": {
-              "buildTarget": "angularLearnings:build:development"
+              "buildTarget": "movies-info:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -99,6 +99,6 @@
     }
   },
   "cli": {
-    "analytics": "e8c5430a-3d4b-4cd5-a9ee-01c3dad500eb"
+    "analytics": "1696ced7-dfbd-460b-b227-da9dc9e36216"
   }
 }
