@@ -1,13 +1,13 @@
-<div class="navMain flex justify-between">
+<div class="navMain flex justify-between font-serif">
     <div class="navLogo flex-none w-24 ml-20 py-4">
         <img src="https://ideogram.ai/assets/image/lossless/response/qyww7sZcRaqgo44-7Q_5KQ" class="w-16 h-16 rounded-lg">
     </div>
     <div class="navItems flex flex-auto w-64 items-center ml-10">
         <ul class="flex">
-            <li class="ml-8" (click)="ShowTodoApp()">Todo</li>
-            <li class="ml-8">Movies</li>
-            <li class="ml-8">Crud</li>
-            <li class="ml-8">Cricket</li>
+            <li class=" font-serif ml-8 text-lg cursor-pointer hover:-translate-y-1 hover:text-lg hover:underline" [ngClass]="{'-translate-y-1 text-gray-600': currentPage === 'todo'}" (click)="ShowTodoApp('todo')">Todo</li>
+            <li class="ml-8 text-lg cursor-pointer hover:-translate-y-1 hover:text-lg hover:underline" [ngClass]="{'-translate-y-1 text-gray-600':currentPage ==='movies'}" (click)="ShowTodoApp('movies')">Movies</li>
+            <li class="ml-8 text-lg cursor-pointer hover:-translate-y-1 hover:text-lg hover:underline">Crud</li>
+            <li class="ml-8 text-lg cursor-pointer hover:-translate-y-1 hover:text-lg hover:underline" (click)="ShowTodoApp('cricket')">Cricket</li>
         </ul>
     </div>
     <div class="flex flex-auto w-32 items-center justify-end pr-10">
@@ -18,5 +18,11 @@
 <div class="contentOfthePage">
     <div class="todo" *ngIf = "currentPage =='todo'">
         <app-todo></app-todo>
+    </div>
+    <div class="moviesComponent" *ngIf="currentPage=='movies'">
+        <app-movies-info></app-movies-info>
+    </div>
+    <div class="cricketComponent" *ngIf="currentPage=='cricket'">
+        <app-cricket></app-cricket>
     </div>
 </div>

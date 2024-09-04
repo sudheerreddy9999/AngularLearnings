@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';  // Import CommonModule here
+import { CommonModule } from '@angular/common';
 import { TodoComponent } from '../todo/todo.component';
+import { MoviesInfoComponent } from '../movies-info/movies-info.component';
+import { CricketComponent } from '../cricket/cricket.component';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -12,16 +14,18 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
     FontAwesomeModule, 
     FormsModule, 
     CommonModule,  // Add CommonModule here
-    TodoComponent
+    TodoComponent,
+    MoviesInfoComponent,
+    CricketComponent
   ],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent {
   faArrowRight = faArrowRight;
-  currentPage: string = "todo";
+  currentPage: string = "cricket";
 
-  ShowTodoApp() {
-    console.log("I got clicked");
+  ShowTodoApp(todo:string) {
+    this.currentPage=todo;
   }
 }

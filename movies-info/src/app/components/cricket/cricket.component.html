@@ -1,0 +1,58 @@
+<div class="px-10">
+    <h1 class="mb-3 text-xl font-serif">Latest News</h1>
+    <hr class="border-t-2 border-blue-400">
+</div>
+<div class="cricketMainContainer font-serif p-4 flex w-full">
+    <div class="newsList w-9/12">
+        <div class="latestNewsContainer flex flex-wrap justify-center">
+            <div *ngFor="let news of firstSixNews" class="eachNewItem bg-gray-100 rounded-lg m-4 w-[320px] shadow-lg">
+                <img [src]="news.story?.image" (click)="newsClicked(news.story?.id)" class="w-full rounded-t-lg">
+                <div class="px-4 py-2">
+                    <p class="text-xl hover:text-blue-700 mb-2 font-medium cursor-pointer" (click)="newsClicked(news.story?.id)">{{news.story?.hline}}</p>
+                    <p class="text-sm mb-1 text-gray-500">Context: {{news.story?.context}}</p>
+                    <p class="mb-4 text-medium text-gray-800">{{news.story?.intro}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="adsList w-3/12 bg-gray-100 mt-3 p-4 rounded-lg">
+        <h1 class="text-center mb-4 bg-blue-500 p-2 rounded-lg text-white">Trending Cricket Content</h1>
+        <div class="flex flex-col gap-4">
+            <h1 class="text-medium">Kohli on Ashwin's game awareness</h1>
+            <div class="relative pb-[56.25%]"> 
+                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/pMtU9AJXhKc?autoplay=1" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <h1>Most Popular News</h1>
+            <div *ngFor="let news of lastFourItems" class="eachNewItem bg-gray-100 rounded-lg h-24 shadow-lg flex">
+                <img [src]="news.story?.image" class="w-full rounded-t-lg  w-[200px] h-24" (click)="newsClicked(news.story?.id)">
+                <div class="px-4 py-2">
+                    <p class="text-sm hover:text-blue-700 mb-2 cursor-pointer hover:text-blue-500 hover:underline" (click)="newsClicked(news?.story?.id)">{{news.story?.hline}}</p>
+                    <p class="text-xs mb-1">Context: {{news.story?.context}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div id="moreDetailsContainer" class="modal fixed inset-0 bg-black bg-opacity-80 z-[999] hidden">
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="alret-modal bg-white dark:bg-neutral-950 relative rounded-[20px] shadow-lg w-3/4 ">
+            <div class="flex flex-col h-[600px]">
+                <div class="px-6 py-8 flex-1 overflow-y-auto text-center">
+                    <h1 class="text-left text-xl font-serif font-bold pb-4 text-gray-600">{{newNewsDetails?.headline}}</h1>
+                    <img [src]='newNewsDetails?.image' class="h-[355px] w-3/4 mb-3 mx-auto rounded-lg" alt="Kong.ai Logo">
+                    <div class="Details Class mb-4" *ngFor="let data of newNewsDetails?.content">
+                        <p>{{data?.content?.contentValue}}</p>
+                    </div>
+                </div>
+                <button class="absolute top-0 right-0 m-4 text-neutral-400 hover:text-neutral-800" (click)="removeNewsModal()" id="modalCloseButton">
+                    <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
